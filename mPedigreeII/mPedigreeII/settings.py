@@ -139,3 +139,10 @@ REST_FRAMEWORK = {
     ]
 }
 
+
+# Heroku settings.
+from pathlib import Path
+
+import django_heroku
+django_heroku.settings(locals())
+

@@ -1,0 +1,1 @@
+web: gunicorn mPedigreeII.wsgi --log-file -
