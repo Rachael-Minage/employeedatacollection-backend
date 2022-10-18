@@ -20,8 +20,8 @@ class Employee(models.Model):
     def employee_code(self):
         import random
         random_number = random.randint(100,900)
-        initials_one = self.first_name[0].upper
-        initials_two = self.middle_name[0].upper
+        initials_one = self.first_name[0].upper()
+        initials_two = self.middle_name[0].upper()
         initials ='%s%s%s'%(random_number,initials_one,initials_two)
         return initials
 

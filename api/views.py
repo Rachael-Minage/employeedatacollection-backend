@@ -56,7 +56,7 @@ def csv_upload(request):
     csv_template = "csv_upload.html"
 
     prompt = {
-     'order':'Order of the CSV should be first_name,middle_name,date_of_graduation,date_of_employment,position,salary,supervisor'
+     'order':'Order of the CSV should be first_name,middle_name,position,salary,supervisor,employee_code'
     }
     if request.method=='GET':
         return render(request,"api/csv_upload.html",prompt)
@@ -71,7 +71,7 @@ def csv_upload(request):
     next(io_string)
 
     employee_csv = csv.reader(io_string, delimiter=',', quotechar="|")
-    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+    # print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
     print(employee_csv)
     for first_name,middle_name,position, salary,supervisors, *__ in employee_csv:
         # print("HELLO WORLD")
@@ -82,6 +82,7 @@ def csv_upload(request):
             position = position,
             salary = salary,
             supervisors = supervisors
+            
         )
         print(created)
         created.save()
